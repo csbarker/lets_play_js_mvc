@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Backbone.js | Simple Todo</title>
+        <style type="text/css">
+            .container {
+                position:relative; 
+                overflow:hidden;
+            }
+            aside {
+                width:20%;
+                float: left;
+                position:absolute;  
+                top:0;
+                bottom:0;
+                background-color: #EEE;
+                text-align: center;
+            }
+            section {
+                width:80%;
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <section>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, voluptatibus, vel, suscipit, ea obcaecati iste consequuntur possimus sequi cum ipsa ut facere repudiandae repellat accusantium harum commodi laudantium soluta aliquam sint distinctio eligendi ducimus eos libero neque consectetur dolore debitis deleniti ullam rem! Incidunt nemo facilis accusamus iure eum nihil beatae dolor! Recusandae, obcaecati, ratione perferendis quo molestias blanditiis ipsa consequatur totam iure quibusdam ad reiciendis eius quidem voluptate tempora fuga modi ducimus quasi tempore deleniti provident commodi cumque labore earum necessitatibus neque similique alias? Nulla, sunt, repellat, eos tenetur possimus alias accusantium aspernatur numquam pariatur blanditiis ratione quam sapiente?</p>
+            </section>
+            <aside>
+                <p><button id="trigger">Trigger</button></p>
+            </aside>
+        </div>
+        
+        <!-- Backbone + Dependencies -->
+        <script src="../../_shared/vendor/jquery-1.11.0.js"></script>
+        <script src="../../_shared/vendor/underscore-1.6.0.js"></script>
+        <script src="../../_shared/vendor/backbone-1.1.2.js"></script>
+        <script src="../../_shared/vendor/backbone.localStorage.js"></script>
+        
+        <!-- -->
+        <script>
+            $("#trigger").on('click', function() {
+                var Sidebar = Backbone.Model.extend({
+                    promptColor: function() {
+                        var cssColor = prompt("Please enter a CSS color:");
+                        this.set({color: cssColor});
+                    }
+                });
+
+                window.sidebar = new Sidebar;
+
+                sidebar.on('change:color', function(model, color) {
+                    $('aside').css({background: color});
+                });
+
+                sidebar.set({color: 'white'});
+
+                sidebar.promptColor();
+            });
+        </script>
+    </body>
+</html>
