@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Backbone.js | Collections</title>
+        <style type="text/css">
+            TABLE {
+                text-align: center;
+            }
+            BUTTON {
+                margin:0 auto;
+            }
+            TEXTAREA {
+                width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th width="50%">Trigger</th>
+                    <th width="50%">Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><button id="trigger1">Trigger 1</button></td>
+                    <td><textarea name="" id="text1" cols="30" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td><button id="trigger2">Trigger 2</button></td>
+                    <td><textarea name="" id="text2" cols="30" rows="10"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+        
+        <!-- Backbone + Dependencies -->
+        <script src="../_shared/vendor/jquery-1.11.0.js"></script>
+        <script src="../_shared/vendor/underscore-1.6.0.js"></script>
+        <script src="../_shared/vendor/backbone-1.1.2.js"></script>
+        <script src="../_shared/vendor/backbone.localStorage.js"></script>
+        
+        <!-- -->
+        <script>
+            // helpers
+            function json(data) {
+                return JSON.stringify(data);
+            }
+            
+            /*
+             * Basic Model / Collection
+             * -----
+             * does nothing but map the model to a collection
+             */
+            $("#trigger1").on('click', function() {
+                var Song = Backbone.Model.extend({
+                    initialize: function(){
+                        console.log("Music is the answer");
+                    }
+                });
+
+                var Album = Backbone.Collection.extend({
+                  model: Song
+                });
+            });
+            
+            /* 
+             * Adding to a collection
+             */
+            $("#trigger2").on('click', function() {
+                var Song = Backbone.Model.extend({
+                    defaults: {
+                        name: "Not specified",
+                        artist: "Not specified"
+                    },
+                    initialize: function(){
+                        // this will only fire once. interesting...
+                        console.log("Music is the answer");
+                    }
+                });
+
+                var Album = Backbone.Collection.extend({
+                    model: Song
+                });
+
+                // create several songs
+                var playlist = [
+                    new Song({ name: "How Bizarre", artist: "OMC" }),
+                    new Song({ name: "Sexual Healing", artist: "Marvin Gaye" }),
+                    new Song({ name: "Talk It Over In Bed", artist: "OMC" }),
+                    new Song({ name: "Lets talk about sex baby"}), // missing default data
+                    new Song({ name: "Yeah", artist: "Usher", year: "2004"}) // extra data
+                ];
+                
+                // now create an collection
+                var myAlbum = new Album(playlist);
+                
+                // we can now access all the items as a collective
+                $('#text2').val(json(myAlbum.models)); // [song1, song2, song3]
+            });
+        </script>
+    </body>
+</html>

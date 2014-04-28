@@ -1,15 +1,5 @@
 $(function() {
-    
-    /* ------------------------------
-     * MODEL
-     * ------------------------------
-     * Models are the heart of any JavaScript application, containing the 
-     * interactive data as well as a large part of the logic surrounding it: 
-     * conversions, validations, computed properties, and access control. 
-     * 
-     * You extend Backbone.Model with your domain-specific methods, and Model 
-     * provides a basic set of functionality for managing changes. 
-     */
+
     var Todo = Backbone.Model.extend({
         defaults: function() {
             return {
@@ -26,11 +16,6 @@ $(function() {
         }
     });
 
-    /* ------------------------------
-     * COLLECTION
-     * ------------------------------
-     * Collections contain a set of models
-     */
     var TodoList = Backbone.Collection.extend({
         model: Todo,
         localStorage: new Backbone.LocalStorage("todos-backbone"),
@@ -51,12 +36,6 @@ $(function() {
         comparator: 'order'
     });
     
-    var Todos = new TodoList;
-    
-    /* ------------------------------
-     * VIEW
-     * ------------------------------
-     */
     var TodoView = Backbone.View.extend({
         tagName: "li",
         template: _.template($("#item-template").html()),
@@ -111,10 +90,6 @@ $(function() {
         }
     });
     
-    /* ------------------------------
-     * APP
-     * ------------------------------
-     */
     var AppView = Backbone.View.extend({
         el: $("#todoapp"),
         statsTemplate: _.template($('#stats-template').html()),
@@ -125,13 +100,13 @@ $(function() {
             "click #toggle-all"         : "toggleAllComplete"
         },
         
-        initialize: function() {            
-            // listen
+        initialize: function() {
+            // add event listeners
             this.listenTo(Todos, 'add', this.addOne);
             this.listenTo(Todos, 'reset', this.addAll);
             this.listenTo(Todos, 'all', this.render);
             
-            // binds
+            // cache elements
             this.input = this.$("#new-todo");
             this.allCheckbox = this.$("#toggle-all")[0];
             this.footer = this.$('footer');
@@ -186,5 +161,6 @@ $(function() {
         }
     });
     
+    var Todos = new TodoList;
     var App = new AppView;
 });
