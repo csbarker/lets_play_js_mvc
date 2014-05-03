@@ -5,7 +5,7 @@ My personal JS playground. Feel free to clone and mess around with it or submit 
 ## Backbone ([Site](http://backbonejs.org/) | [Docs](http://backbonejs.org/))
 ### Todo App [x](http://localhost/_github/lets_play_js_mvc/backbone/todo_app/)
 **Description**
-* A handwritten copy of [the official todo application](http://backbonejs.org/examples/todos/index.html). 
+* A handwritten copy of [the official todo application](http://backbonejs.org/examples/todos/index.html) with some minor adjustments and comments. 
 
 **Features**
 * Add todos
