@@ -1,21 +1,29 @@
 $(function() {
-// Templates
-    window.JST = {};
-
-    window.JST['item-template'] = _.template(
-        '<div class="view">' +
-            //'<input class="toggle" type="checkbox" <%= done ? "checked=\"checked\"" \: "" %> />' +
-            '<label><%= title %></label>' +
-            '<a class="destroy"></a>' +
-          '</div>' +
-          '<input class="edit" type="text" value="<%= title %>" />'
-    );
-    window.JST['stats-template'] = _.template(
-        '<% if (done) { %>' +
-            '<a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? "item" : "items" %></a>' +
-        '<% } %>' +
-            '<div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? "item" : "items" %> left</div>'
-    );
+    
+    /*
+     * Templates
+     */
+    window.JST = {}
+    
+    window.JST['item-template'] = ' \
+        <div class="view"> \
+            <input class="toggle" type="checkbox" <%= done ? "checked=\'checked\'" : "" %> /> \
+            <label><%= title %></label> \
+            <a class="destroy"></a> \
+        </div> \
+        <input class="edit" type="text" value="<%= title %>" /> \
+    ';
+        
+    window.JST['stats-template'] = ' \
+             <% if (done) { %> \
+            <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? "item" : "items" %></a> \
+        <% } %> \
+            <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? "item" : "items" %> left</div> \
+    ';
+    
+    /*
+     * Models
+     */
     var Todo = Backbone.Model.extend({
         defaults: function() {
             return {
@@ -32,6 +40,9 @@ $(function() {
         }
     });
 
+    /*
+     * Collections
+     */
     var TodoList = Backbone.Collection.extend({
         model: Todo,
         localStorage: new Backbone.LocalStorage("todos-backbone"),
@@ -52,12 +63,15 @@ $(function() {
         comparator: 'order'
     });
     
+    /*
+     * Views
+     */
     var TodoView = Backbone.View.extend({
         tagName: "li",
-        template: JST['item-template'](),
+        template: _.template(JST['item-template']),
         
         events: {
-            // jquery event   | action to take
+            // on, callback
             "click .toggle"   : "toggleDone",
             "dblclick .view"  : "edit",
             "click a.destroy" : "clear",
@@ -108,7 +122,7 @@ $(function() {
     
     var AppView = Backbone.View.extend({
         el: $("#todoapp"),
-        statsTemplate: JST['stats-template'](),
+        statsTemplate: _.template(JST['stats-template']),
         
         events: {
             "keypress #new-todo"        : "createOnEnter",

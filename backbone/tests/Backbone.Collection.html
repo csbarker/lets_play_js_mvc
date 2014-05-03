@@ -35,15 +35,13 @@
             </tbody>
         </table>
         
-        
-        
         <!-- Backbone + Dependencies -->
         <script src="../_shared/vendor/jquery-1.11.0.js"></script>
         <script src="../_shared/vendor/underscore-1.6.0.js"></script>
         <script src="../_shared/vendor/backbone-1.1.2.js"></script>
         <script src="../_shared/vendor/backbone.localStorage.js"></script>
         
-        <!-- -->
+        <!-- Fun Time! -->
         <script>
             // helpers
             function json(data) {
@@ -99,7 +97,14 @@
                 var myAlbum = new Album(playlist);
                 
                 // we can now access all the items as a collective
-                $('#text2').val(json(myAlbum.models)); // [song1, song2, song3]
+                myAlbum.each(function(song) {
+                    // turns out this is triggering a fetch command
+                    // which is then throwing a url not found error
+                    // as it is required by the model. TODO: Add url attribute
+                    song.save({title: 'new: '});
+                });
+                
+                //$('#text2').val(json(myAlbum));
             });
         </script>
     </body>
