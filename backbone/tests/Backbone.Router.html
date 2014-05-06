@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Backbone | Router</title>
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="../_shared/vendor/bootstrap/bootstrap-3.1.1/css/bootstrap.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Backbone Router Test</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>History</h2>
+                    <ul id="history" class="well"></ul>                    
+                </div>
+                <div id="triggers" class="col-md-8">
+                    <h2>Triggers</h2>
+                    <button id="trigger1" class="btn btn-primary"></button>
+                    <button id="trigger2-homepage" class="btn btn-primary"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backbone + Dependencies -->
+        <script src="../_shared/vendor/jquery-1.11.0.js"></script>
+        <script src="../_shared/vendor/underscore-1.6.0.js"></script>
+        <script src="../_shared/vendor/backbone-1.1.2.js"></script>
+        <script src="../_shared/vendor/backbone.localStorage.js"></script>
+        
+        <!-- Misc -->
+        <script src="../_shared/vendor/bootstrap/bootstrap-3.1.1/js/bootstrap.js"></script>
+                
+        <!-- App -->
+        <script type="text/javascript">
+            $(document).ready(function() {  
+                $("#triggers BUTTON").each(function() { $(this).html(this.id); });
+
+                var history = $("#history");                
+                var Router = Backbone.Router.extend({
+                    routes: {
+                      "": "home",
+                      "trigger1": "trigger1"
+                    },
+
+                    home: function() {
+                        history.append('<li>Loaded homepage</li>');
+                    },
+                    
+                    trigger1: function() {
+                        history.append('<li>Triggered "trigger1"</li>');
+                    }
+
+                });
+
+                // initiate
+                Backbone.history.start()
+                var router = new Router
+                router.navigate("", {trigger: true})
+                
+                //triggers
+                $("#trigger1").on("click", function() {
+                    router.navigate("trigger1", {trigger: true})
+                });
+                
+                $("#trigger2-homepage").on("click", function() {
+                    router.navigate("", {trigger: true})
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,6 +1,10 @@
 Lets Play: JavaScript MVC
 =====================
-My personal JS playground. Feel free to clone and mess around with it or submit any patches if you feel I could go about something a bit better.
+My personal JS playground. 
+Feel free to clone and mess around with it.
+Also please submit any patches if you feel I could go about something a bit better.
+
+Everything here should work from localhost unless stated otherwise.
 
 ## Backbone ([Site](http://backbonejs.org/) | [Docs](http://backbonejs.org/))
 ### Todo App [x](http://localhost/_github/lets_play_js_mvc/backbone/todo_app/)
