@@ -17,8 +17,8 @@
                 </div>
                 <div id="triggers" class="col-md-8">
                     <h2>Triggers</h2>
+                    <button id="homepage" class="btn btn-primary"></button>
                     <button id="trigger1" class="btn btn-primary"></button>
-                    <button id="trigger2-homepage" class="btn btn-primary"></button>
                 </div>
             </div>
         </div>
@@ -40,8 +40,8 @@
                 var history = $("#history");                
                 var Router = Backbone.Router.extend({
                     routes: {
-                      "": "home",
-                      "trigger1": "trigger1"
+                      ""            : "home",
+                      "trigger1"    : "trigger1"
                     },
 
                     home: function() {
@@ -55,17 +55,16 @@
                 });
 
                 // initiate
+                var router = new Router();
                 Backbone.history.start()
-                var router = new Router
-                router.navigate("", {trigger: true})
                 
                 //triggers
                 $("#trigger1").on("click", function() {
-                    router.navigate("trigger1", {trigger: true})
+                    router.navigate("trigger1", true)
                 });
                 
-                $("#trigger2-homepage").on("click", function() {
-                    router.navigate("", {trigger: true})
+                $("#homepage").on("click", function() {
+                    router.navigate("", true)
                 });
             });
         </script>
